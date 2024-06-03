@@ -87,6 +87,33 @@ repositories:
     type: git
     url: https://github.com/MapIV/transport_drivers.git
     version: e7e25ed52b58b3556fa8b0f75a87f7c5d42fbef1
+  # pixkit chassis
+  # pixkt_sensor_component
+  sensor_component/external/ros2_socketcan:
+    type: git
+    url: https://github.com/autowarefoundation/ros2_socketcan.git
+    version: 1.1.0
+  sensor_component/external/nmea_navsat_driver:
+    type: git
+    url: https://github.com/pixmoving-moveit/nmea_navsat_driver.git
+    version: ros2
+  sensor_component/external/ultra_sonic_radar_driver:
+    type: git
+    url: https://github.com/pixmoving-moveit/ultra_sonic_radar_driver.git
+    version: main
+  sensor_component/external/ars408_driver:
+    type: git
+    url: https://github.com/tier4/ars408_driver.git
+    version: main
+  sensor_component/external/rslidar_sdk:
+    type: git
+    url: https://github.com/pixmoving-moveit/rslidar_sdk.git
+    version: main
+  sensor_component/external/rslidar_msg:
+    type: git
+    url: https://github.com/RoboSense-LiDAR/rslidar_msg.git
+    version: main
+
   sensor_kit/sample_sensor_kit_launch:
     type: git
     url: https://github.com/autowarefoundation/sample_sensor_kit_launch.git
@@ -95,6 +122,20 @@ repositories:
     type: git
     url: https://github.com/RobotecAI/awsim_sensor_kit_launch.git
     version: c698f24a2a0b5dccc8e8b15e8628ae58bcdabb4b
+  # pixkit_sensor_kit
+  sensor_kit/external/pixkit_sensor_kit_launch:
+    type: git
+    url: https://github.com/pixmoving-moveit/pixkit_sensor_kit_launch.git
+    version: feature/autotech
+  # pixkit_vehicle
+  vehicle/external/pix_driver:
+    type: git
+    url: https://github.com/pixmoving-moveit/pix_driver.git
+    version: main
+  vehicle/pixkit_launch:
+    type: git
+    url: https://github.com/pixmoving-moveit/pixkit_launch.git
+    version: feature/autotech
   vehicle/sample_vehicle_launch:
     type: git
     url: https://github.com/autowarefoundation/sample_vehicle_launch.git
@@ -103,7 +144,8 @@ repositories:
     type: git
     url: https://github.com/tier4/pacmod_interface.git
     version: f3690802c12d1f6335df9f9d695f594ddbac04c6
+  feature/pixkit_sensors
   param/autoware_individual_params:
     type: git
-    url: https://github.com/autowarefoundation/autoware_individual_params.git
-    version: bfc7e159cb040f2abcf39954ede326ecebd86749
+    url: https://github.com/pixmoving-moveit/autoware_individual_params.git
+    version: feature/pixkit_sensors
