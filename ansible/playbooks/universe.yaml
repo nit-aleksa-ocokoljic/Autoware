@@ -45,7 +45,7 @@
     - role: autoware.dev_env.rmw_implementation
     - role: autoware.dev_env.gdown
     - role: autoware.dev_env.build_tools
-    - role: autoware.dev_env.agnocast
+    # - role: autoware.dev_env.agnocast
 
     # Autoware module dependencies
     - role: autoware.dev_env.geographiclib
@@ -56,7 +56,7 @@
     - role: autoware.dev_env.tensorrt
       when: prompt_install_nvidia == 'y'
     - role: autoware.dev_env.spconv
-      when: prompt_install_nvidia == 'y'
+      # when: prompt_install_nvidia == 'y'
 
     # Autoware devel dependencies
     - role: autoware.dev_env.dev_tools
