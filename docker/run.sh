@@ -11,14 +11,7 @@ NC='\033[0m' # No Color
 
 SCRIPT_DIR=$(readlink -f "$(dirname "$0")")
 WORKSPACE_ROOT="$SCRIPT_DIR/.."
-
-# Determine ROS distro from environment or default to humble
-ros_distro=${ROS_DISTRO:-humble}
-if [ "$ros_distro" = "humble" ]; then
-    source "$WORKSPACE_ROOT/amd64.env"
-else
-    source "$WORKSPACE_ROOT/amd64_jazzy.env"
-fi
+source "$WORKSPACE_ROOT/amd64.env"
 if [ "$(uname -m)" = "aarch64" ]; then
     source "$WORKSPACE_ROOT/arm64.env"
 fi
