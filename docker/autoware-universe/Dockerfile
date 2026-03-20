@@ -32,11 +32,13 @@ RUN --mount=type=ssh \
   && pip uninstall -y ansible ansible-core \
   && mkdir src \
   && vcs import src < autoware.repos \
+  # Update submodules of rslidar and ouster, Comment out submodule updates if on frozen version
+  && git -C src/sensor_component/external/ouster-ros submodule update --init --recursive \
+  && git -C src/sensor_component/external/rslidar_sdk submodule update --init --recursive \
   && rosdep update \
   && DEBIAN_FRONTEND=noninteractive rosdep install -y --ignore-src --from-paths src --rosdistro "$ROS_DISTRO" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-
 ## Clean up unnecessary files
 RUN rm -rf \
   "$HOME"/.cache \
@@ -74,9 +76,10 @@ CMD ["/bin/bash"]
 FROM devel as builder
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-## Build and change permission for runtime data conversion
+## Build and change permission for runtime data conversion add -DBUILD_TESTING=OFF
 RUN source /opt/ros/"$ROS_DISTRO"/setup.bash \
-  && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release \
+  && colcon build \
+     --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON\
   && find /autoware/install -type d -exec chmod 777 {} \;
 
 # hadolint ignore=DL3006
