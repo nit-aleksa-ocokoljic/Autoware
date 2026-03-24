@@ -17,3 +17,7 @@ target "prebuilt" {
   dockerfile = "docker/autoware-universe/Dockerfile"
   target = "prebuilt"
 }
+target "builder" {
+  dockerfile = "docker/autoware-universe/Dockerfile"
+  target = "builder"
+}

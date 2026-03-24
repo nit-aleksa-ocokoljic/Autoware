@@ -19,6 +19,9 @@ while [ "$1" != "" ]; do
     --no-prebuilt)
         option_no_prebuilt=true
         ;;
+    --testing)
+        option_testing=true
+        ;;
     *)
         args+=("$1")
         ;;
@@ -38,6 +41,8 @@ fi
 # Set prebuilt options
 if [ "$option_no_prebuilt" = "true" ]; then
     targets=("devel")
+elif [ "$option_testing" = "true" ]; then
+    targets=("builder")
 else
     # default targets include devel and prebuilt
     targets=()
@@ -73,5 +78,6 @@ docker buildx bake --no-cache --load --progress=plain -f "$SCRIPT_DIR/autoware-u
     --set "*.args.SETUP_ARGS=$setup_args" \
     --set "devel.tags=ghcr.io/autowarefoundation/autoware-universe:$rosdistro-latest$image_name_suffix" \
     --set "prebuilt.tags=ghcr.io/autowarefoundation/autoware-universe:$rosdistro-latest-prebuilt$image_name_suffix" \
+    --set "builder.tags=ghcr.io/autowarefoundation/autoware-universe:$rosdistro-latest-testing$image_name_suffix" \
     "${targets[@]}"
 set +x

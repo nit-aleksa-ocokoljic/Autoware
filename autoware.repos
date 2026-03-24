@@ -23,9 +23,9 @@ repositories:
   # universe
   universe/autoware.universe:
     type: git
-    url: https://github.com/autowarefoundation/autoware.universe.git
-    version: 3d8ed94fdbfd07d38ebd3a001bad87124884c920
-  universe/external/tier4_ad_api_adaptor:
+    url: https://github.com/nit-aleksa-ocokoljic/autoware_universe.git
+    version: pixkit-release-2023.04
+  universe/external/tier4_ad_api_adaptor: # TODO(TIER IV): Improve design/code and transfer to AWF
     type: git
     url: https://github.com/tier4/tier4_ad_api_adaptor.git
     version: e61768b3fcb6821e684d5ad75e310a74f9b568b8
